@@ -4,9 +4,23 @@ go:
     - 1.8
     - 1.9
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 install:
   - go get -t ./...
   - make install-linters
 
+before_script:
+  - make all
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - make run &
+
 script:
   - make check
+  - make protractor
