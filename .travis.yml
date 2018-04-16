@@ -9,7 +9,7 @@ addons:
   chrome: stable
 
 env:
-  - SKYCOIN_ADDR="https://node.skycoin.net"
+  - SKYCOIN_ADDR="https://node.skycoin.net/api"
 
 install:
   - go get -t ./...
