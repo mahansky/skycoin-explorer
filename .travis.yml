@@ -25,4 +25,5 @@ before_script:
 
 script:
   - make check
+  - make build-ng
   - make protractor
