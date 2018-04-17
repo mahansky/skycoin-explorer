@@ -82,6 +82,7 @@ func init() {
 	skycoinAddr = &url.URL{
 		Scheme: origURL.Scheme,
 		Host:   origURL.Host,
+		Path:   origURL.Path,
 	}
 
 	flag.BoolVar(&apiOnly, "api-only", false, "Only run the API, don't serve static content")
@@ -106,7 +107,7 @@ func buildSkycoinURL(path string, query url.Values) string {
 	u := &url.URL{
 		Scheme:   skycoinAddr.Scheme,
 		Host:     skycoinAddr.Host,
-		Path:     path,
+		Path:     skycoinAddr.Path + path,
 		RawQuery: rawQuery,
 	}
 
